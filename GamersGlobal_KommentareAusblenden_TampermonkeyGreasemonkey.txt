@@ -1,0 +1,36 @@
+// ==UserScript==
+// @name         GG_AlleKommentareAusblenden
+// @namespace    http://www.gamersglobal.de
+// @version      1.2
+// @description  Blendet die Kommentarsektion auf GamersGlobal aus und auf Tastendruck ein. Kommentare ignorierter Benutzer werden ausgeblendet.
+// @author       Hedeltrollo
+// @match        http://www.gamersglobal.de/*
+// @grant        GM_addStyle
+// ==/UserScript==
+
+// Kommentarsektion komplett ausblenden*/
+GM_addStyle('#comments {visibility: hidden;height: 0;}.teaser-comments, .teaser-comments-new {visibility: hidden;height: 0;}');
+
+var elmNewContent = document.createElement('div');
+	elmNewContent.id = 'Button';
+    elmNewContent.innerHTML = '<button id="myButton" type="button">'
+                + 'Kommentare einblenden</button>'
+                ;
+	var elmcomments = document.getElementById('comments');
+	elmcomments.parentNode.insertBefore(elmNewContent, elmcomments);
+
+var zNode       = document.createElement ('div');
+zNode.innerHTML = '<button id="myButton" type="button">'
+                + 'Kommentare einblenden</button>'
+                ;
+
+document.getElementById ("myButton").addEventListener (
+    "click", ButtonClickAction, false
+);
+
+function ButtonClickAction (zEvent) {
+    GM_addStyle('#comments {visibility: visible;height: auto;}#Button{visibility: hidden;height:0;}');
+    GM_addStyle('div.comment.normal.comment-published.warn.hide-proc .comment-infos, div.comment.normal.comment-published.warn.hide-proc .comment-links {visibility: hidden;height: 0px;}');
+    GM_addStyle('div.comment.normal.comment-published.warn.hide-proc .comment-hide-control {background-color: grey;height: 1px;font-size: 0;}');
+    GM_addStyle('div.comment.normal.comment-published.warn.hide-proc + div.indented.odd, div.comment.normal.comment-published.warn.hide-proc + div.indented.even {visibility: hidden;height: 0;}');
+}

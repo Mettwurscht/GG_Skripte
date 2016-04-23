@@ -1,0 +1,17 @@
+// ==UserScript==
+// @name         GG_IgnorierteUserAusblenden
+// @namespace    http://www.gamersglobal.de
+// @version      1.2
+// @description  Blockiert die Kommentare ignorierter Benutzer in der Kommentarabteilung auf GamersGlobal
+// @author       Hedeltrollo
+// @match        http://www.gamersglobal.de/*
+// @grant        GM_addStyle
+// ==/UserScript==
+
+
+// Blendet die Kopfzeile mit Userinfos und die "Antwort" und "Melden" Buttons aus
+GM_addStyle('div.comment.normal.comment-published.warn.hide-proc .comment-infos, div.comment.normal.comment-published.warn.hide-proc .comment-links {visibility: hidden;height: 0px;}');
+// Erzeugt den dünnen Strich anstelle "...restlichen Kommentar anzeigen"
+GM_addStyle('div.comment.normal.comment-published.warn.hide-proc .comment-hide-control {background-color: grey;height: 1px;font-size: 0;}');
+// Entfernt den nachfolgenden Thread
+GM_addStyle('div.comment.normal.comment-published.warn.hide-proc + div.indented.odd, div.comment.normal.comment-published.warn.hide-proc + div.indented.even {visibility: hidden;height: 0;}');

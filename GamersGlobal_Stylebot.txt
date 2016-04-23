@@ -1,0 +1,40 @@
+/*Blendet die Kopfzeile mit Userinfos sowie die "Antwort" und "Melden" Buttons aus*/
+
+div.comment.normal.comment-published.warn.hide-proc .comment-infos, div.comment.normal.comment-published.warn.hide-proc .comment-links { 
+    visibility: hidden;
+    height: 0px;
+}
+
+/*Erzeugt den dünnen Strich anstelle "...restlichen Kommentar anzeigen"*/
+
+div.comment.normal.comment-published.warn.hide-proc .comment-hide-control {
+    background-color: grey;
+    height: 1px;
+    font-size: 0;
+}
+
+/*Entfernt den nachfolgenden Thread*/
+
+div.comment.normal.comment-published.warn.hide-proc + div.indented.odd, div.comment.normal.comment-published.warn.hide-proc + div.indented.even {
+    visibility: hidden;
+    height: 0;
+}
+
+/*Farbe neue Kommentare angepasst*/
+
+.teaser-comments-new a:visited {
+    color: white
+;
+}
+
+/* Kommentarsektion komplett ausblenden*/
+
+#comments {
+    visibility: hidden;
+    height: 0;
+}
+
+.teaser-comments, .teaser-comments-new {
+    visibility: hidden;
+    height: 0;
+}
